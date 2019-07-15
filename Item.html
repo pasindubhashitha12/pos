@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>manage customer</title>
+    <link rel="stylesheet" type="text/css" href="css/semantic.min.css">
+    <script
+            src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous"></script>
+    <script src="js/semantic.min.js"></script>
+
+    <style>
+        #c{
+            height: 630px;
+            position: fixed;
+            top: 30px;
+
+        }
+        #h{
+            position: fixed;
+            width: 100%;
+        }
+        #d{
+
+            position: absolute;
+            left: 300px;
+            top: 50px;
+        }
+        .field{
+            width: 1000px;
+
+        }
+        #B{
+            position: absolute;
+            left: 300px;
+            top: 400px;
+        }
+        #table1{
+            width: 1000px;
+            position: absolute;
+            left: 300px;
+            top: 440px;
+        }
+        #Pic{
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            right: 200px;
+            top: 5px;
+        }
+        #pic2{
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            right: 150px;
+            top: 5px;
+        }
+        #pic3{
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            right: 100px;
+            top: 5px;
+
+        }
+        #pic4{
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            right: 50px;
+            top: 5px;
+
+        }
+
+    </style>
+
+</head>
+<body>
+
+<div class="ui inverted menu" id="h">
+    <!--<a class="active item">-->
+        <!--Home-->
+    <!--</a>-->
+    <a class="item">
+        Point Of Sale
+    </a>
+    <!--<a class="item">-->
+        <!--Friends-->
+    <!--</a>-->
+
+    <a href="">
+        <img src="img/sms.png" id="Pic">
+    </a>
+    <a href="">
+        <img src="img/chat.png" id="pic2">
+    </a>
+    <a href="">
+        <img src="img/setting.png" id="pic3">
+    </a>
+    <a href="">
+        <img src="img/logout.png" id="pic4">
+    </a>
+
+
+</div>
+<div class="ui inverted vertical menu" id="c">
+    <a class="active item" href="Index.html">
+        Home
+    </a>
+    <a class="item" href="Customer.html">
+        Customer
+    </a>
+    <a class="item">
+        Item
+    </a>
+    <a class="item" href="Order.html">
+        Place Order
+    </a>
+    <a class="item">
+        View reports
+    </a>
+    <a class="item">
+        LogOut
+    </a>
+
+
+    <form class="ui form" id="d">
+        <div class="field">
+            <label>Item ID</label>
+            <input type="text" id="code" placeholder="Item ID">
+        </div>
+        <div class="field">
+            <label>Item Name</label>
+            <input type="text" id="name" placeholder="Item Name">
+        </div>
+        <div class="field">
+            <label>QTY</label>
+            <input type="text" id="qty" placeholder="QTY">
+        </div>
+        <div class="field">
+            <label>  Unit Price </label>
+            <input type="text" id="unit" placeholder="Rupeese">
+        </div>
+        <div class="field">
+            <div class="ui checkbox">
+                <input type="checkbox" tabindex="0" class="hidden">
+                <!--<label>I agree to the Terms and Conditions</label>-->
+            </div>
+        </div>
+
+
+
+
+    </form>
+
+
+
+</div>
+<div id="B">
+    <button class="ui primary basic button" onclick="addData()" >ADD</button>
+    <button class="ui secondary basic button">Update</button>
+    <button class="ui positive basic button" onclick="myDeleteFunction()">Delete</button>
+    <button class="ui negative basic button">Refresh</button>
+</div>
+
+<table class="ui selectable inverted table" id="table1" >
+    <thead>
+    <tr>
+        <th> Item ID </th>
+        <th> Item Name</th>
+        <th> QTY</th>
+        <th class="right aligned">Unit price</th>
+
+    </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+</table>
+
+
+<script>
+
+    function addData() {
+        var table=document.getElementById("table1"),
+            newRow=table.insertRow(table.length),
+            cell1=newRow.insertCell(0),
+            cell2=newRow.insertCell(1),
+            cell3=newRow.insertCell(2),
+            cell4=newRow.insertCell(3),
+
+            code=
+                document.getElementById("code").value,
+            name=
+                document.getElementById("name").value,
+            qty=
+                document.getElementById("qty").value,
+            unit=
+                document.getElementById("unit").value;
+
+        cell1.innerHTML=code;
+        cell2.innerHTML=name;
+        cell3.innerHTML=qty;
+        cell4.innerHTML=unit;
+    }
+
+</script>
+
+<script>
+    // function myCreateFunction() {
+    //     var table = document.getElementById("table");
+    //     var row = table.insertRow(0);
+    //     var cell1 = row.insertCell(0);
+    //     var cell2 = row.insertCell(1);
+    //     cell1.innerHTML = "NEW CELL1";
+    //     cell2.innerHTML = "NEW CELL2";
+    // }
+
+    function myDeleteFunction() {
+        document.getElementById("table1").deleteRow(1);
+    }
+</script>
+
+
+
+
+
+</body>
+</html>
